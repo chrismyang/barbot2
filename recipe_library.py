@@ -2,10 +2,12 @@
 
 
 class RecipeLibrary:
+    def __init__(self, recipes):
+        self._recipes = recipes
+
     def add_recipe(self, recipe):
         # TODO
-        pass
+        raise Exception("Not implemented yet")
 
     def get_recipes(self):
-        # un-hard-code eventually obviously
-        return [whiskey_sour, manhattan, negroni]
+        return self._recipes

@@ -1,32 +1,26 @@
-import readline
-
+from driver import Driver
+from orchestrator import Orchestrator
+from pump_config import PumpConfig
 from recipe_library import RecipeLibrary
 from recipe import Recipe
 
-
-# Hi jason!
-#greetings!
-
-def print_recipes(library):
-    for recipe in library.get_recipes():
-
-
 # https://www.bonappetit.com/recipe/whiskey-sour
-whiskey_sour = Recipe(
-    {
-        "bourbon": 2,
-        "lemon_juice": 0.75,
-        "simple_syrup": 0.75
-    }
-)
+whiskey_sour = Recipe("Whiskey Sour", {
+    "bourbon": 2,
+    "lemon_juice": 0.75,
+    "simple_syrup": 0.75
+})
 
-library = RecipeLibrary()
+library = RecipeLibrary(whiskey_sour)
 
-print_recipes(library)
+driver = Driver()
 
+pump_config = PumpConfig({
+    "pump_a": "bourbon",
+    "pump_b": "lemon_juice",
+    "pump_c": "simple_syrup"
+})
 
-recipe = readline.("What recipe?...")
+orchestrator = Orchestrator()
 
-recipe = RecipeLibrary().look_up_recipe_by_name("whiskey_sour")
-
-Orchestraor().make_drink(recipe, pump_config, driver)
+orchestrator.make_drink(whiskey_sour, pump_config, driver)
