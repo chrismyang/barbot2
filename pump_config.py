@@ -2,12 +2,20 @@
 
 
 class PumpConfig:
-    def __init__(self, pump_config):
-        self._pump_config = pump_config
+    def __init__(self, pump_name, enable_pin_number, forward_pin_number, reverse_pin_number):
+        self._pump_name = pump_name
+        self._enable_pin_number = enable_pin_number
+        self._forward_pin_number = forward_pin_number
+        self._reverse_pin_number = reverse_pin_number
 
-    def get_pump_for_ingredient(self, ingredient_to_find):
-        for pump_id,ingredient in self._pump_config.items():
-            if ingredient == ingredient_to_find:
-                return pump_id
+    def get_pump_name(self):
+        return self._pump_name
 
-        raise Exception(f"This recipe does not have ingredient '{ingredient}'")
+    def get_enable_pin_number(self):
+        return self._enable_pin_number
+
+    def get_forward_pin_number(self):
+        return self._forward_pin_number
+
+    def get_reverse_pin_number(self):
+        return self._reverse_pin_number
