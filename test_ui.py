@@ -40,7 +40,7 @@ if __name__ == "__main__":
         print("================")
         print()
 
-        pump_to_calibrate = "pump_a"
+        pump_to_calibrate = sys.argv[2]
 
         input('Hit enter to begin calibration')
         driver.start_prime(pump_to_calibrate)
@@ -64,6 +64,12 @@ if __name__ == "__main__":
         driver.close()
 
     elif command == "make_drink":
+        print("Make Drink")
+        print("==========")
+        print()
+
+        # recipe_name = sys.argv[2]
+
         orchestrator = Orchestrator()
         orchestrator.make_drink(whiskey_sour, ingredient_layout, driver)
         driver.close()
