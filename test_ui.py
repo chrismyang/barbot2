@@ -70,14 +70,14 @@ if __name__ == "__main__":
 
         driver.close()
     elif command == "purge":
-        pump_to_prime = sys.argv[2]
+        pump_to_purge = sys.argv[2]
 
         input(f'Hit enter to begin purge of pump {pump_to_purge}:')
         print(f"Purging pump '{pump_to_purge}'...")
-        driver.start_purge(pump_to_prime)
+        driver.start_purge(pump_to_purge)
 
         input('Hit enter to stop purge')
-        driver.end_purge(pump_to_prime)
+        driver.end_purge(pump_to_purge)
 
         driver.close()
 
