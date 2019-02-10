@@ -1,1 +1,3 @@
+eventlet
 pyserial
+socketIO-client
